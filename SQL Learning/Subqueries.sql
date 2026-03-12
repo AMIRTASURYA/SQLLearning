@@ -123,6 +123,13 @@ WHERE EXISTS(
 
 
 SELECT * FROM Sales.Customers WHERE Country ='Germany'
+-- to check other then Germany
+SELECT * FROM Sales.Orders o
+WHERE NOT EXISTS(
+			SELECT 1 FROM Sales.Customers c
+			WHERE Country ='Germany'and 
+			o.CustomerID = c.CustomerID)
+
 
 
 
